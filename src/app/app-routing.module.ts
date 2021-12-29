@@ -7,7 +7,8 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'about-us',children:[{
     path:'vision',component:VisionComponent
-  }]}
+  }]},
+  {path:'**',component:HomeComponent}
 ];
 
 @NgModule({
