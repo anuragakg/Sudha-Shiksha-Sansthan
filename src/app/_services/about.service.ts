@@ -39,4 +39,9 @@ export class AboutService {
       map:"https://www.google.com/maps/place/Sudha+Shiksha+Sanstha/@28.813394,77.5493985,15z/data=!4m5!3m4!1s0x0:0x954975b7a45a2e76!8m2!3d28.813394!4d77.5493985"
     }
   }
+  getSocialMedia(){
+    return {
+      facebook:'https://www.facebook.com/Sudha-Shiksha-Sanstha-104819332074097'
+    }
+  }
 }
