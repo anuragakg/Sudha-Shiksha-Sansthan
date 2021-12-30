@@ -10,6 +10,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { VisionComponent } from './vision/vision.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
