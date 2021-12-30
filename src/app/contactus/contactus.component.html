@@ -7,26 +7,47 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 <div class="contact-border">
                     <h3>  Drop us message for any query</h3>
-                    <form method="post" action="enq.php"> 
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> 
                  <div class="row">
                   
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <input type="text" class="form-control contact-input" name="name" placeholder="Name" required="">
+                        <input type="text" class="form-control contact-input"   formControlName="name" placeholder="Name" >
+                        <span class="error" *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].dirty || contactForm.controls['name'].touched)">
+                            <p class="error" *ngIf="contactForm.controls['name'].errors?.['required']">Name is required</p>
+                            <p class="error" *ngIf="contactForm.controls['name'].errors?.['minlength']">Name must be at least 2 characters long.</p>
+                            <p class="error" *ngIf="contactForm.controls['name'].errors?.['maxlength']">Name should not  be more than 25 characters </p>
+                        </span>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <input type="text" class="form-control contact-input" name="email"placeholder="Email Id" required="">
+                        <input type="text" class="form-control contact-input" formControlName="email"placeholder="Email Id" >
+                        <span class="error" *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)">
+                            <p class="error" *ngIf="contactForm.controls['email'].errors?.['required']">Please enter email</p>
+                            <p class="error" *ngIf="contactForm.controls['email'].errors?.['email']">Please enter a valid email</p>
+                        </span>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <input type="text" class="form-control contact-input" name="phonenumber"placeholder="Phone No" required="">
+                        <input type="text" class="form-control contact-input" formControlName="phone" placeholder="Phone No" >
+                        <span class="error" *ngIf="contactForm.controls['phone'].invalid && (contactForm.controls['phone'].dirty || contactForm.controls['phone'].touched)">
+                            <p class="error" *ngIf="contactForm.controls['phone'].errors?.['required']">Please enter phone number</p>
+                            <p class="error" *ngIf="contactForm.controls['phone'].errors?.['pattern']">Please enter a valid phone number </p>
+                        </span>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <input type="text" class="form-control contact-input" name="subject" placeholder="Subject" required="">
+                        <input type="text" class="form-control contact-input" formControlName="subject" placeholder="Subject" >
+                        <span class="error" *ngIf="contactForm.controls['subject'].invalid && (contactForm.controls['subject'].dirty || contactForm.controls['subject'].touched)">
+                            <p class="error" *ngIf="contactForm.controls['subject'].errors?.['required']">Please enter subject</p>
+                            
+                        </span>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <textarea cols="20" rows="10" class="form-control contact-input" name="msg" placeholder="Message" required=""></textarea>
+                        <textarea cols="20" rows="10" class="form-control contact-input" formControlName="message" placeholder="Message" ></textarea>
+                        <span class="error" *ngIf="contactForm.controls['message'].invalid && (contactForm.controls['message'].dirty || contactForm.controls['message'].touched)">
+                            <p class="error" *ngIf="contactForm.controls['message'].errors?.['required']">Please enter message</p>
+                            
+                        </span>
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <input type="submit" value="SUBMIT NOW" class=" form-contact-btn">
+                        <button type="submit" [disabled]="!contactForm.valid" class="form-contact-btn">Submit</button>
                     </div>
                      
                    </div>

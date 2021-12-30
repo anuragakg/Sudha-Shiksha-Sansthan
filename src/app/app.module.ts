@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { VisionComponent } from './vision/vision.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { ContactusComponent } from './contactus/contactus.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     CarouselModule
   ],
   providers: [],
