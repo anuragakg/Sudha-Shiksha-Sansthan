@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { VisionComponent } from './vision/vision.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { VisionComponent } from './vision/vision.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    VisionComponent
+    VisionComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

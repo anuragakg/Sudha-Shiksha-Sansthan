@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { AboutService } from '../_services/about.service';
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  selector: 'app-contactus',
+  templateUrl: './contactus.component.html',
+  styleUrls: ['./contactus.component.css']
 })
-export class FooterComponent implements OnInit {
+export class ContactusComponent implements OnInit {
+
   address:any;
   appname:string;
-  currentYear:any;
   constructor(private aboutService:AboutService) {
     this.address=this.aboutService.getAddress();
     this.appname=environment.App_Name;
-    this.currentYear=new Date().getFullYear();
    }
 
   ngOnInit(): void {

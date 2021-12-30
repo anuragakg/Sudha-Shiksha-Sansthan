@@ -1,0 +1,85 @@
+
+
+<div class="about-section1 padding-center">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <div class="contact-border">
+                    <h3>  Drop us message for any query</h3>
+                    <form method="post" action="enq.php"> 
+                 <div class="row">
+                  
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <input type="text" class="form-control contact-input" name="name" placeholder="Name" required="">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <input type="text" class="form-control contact-input" name="email"placeholder="Email Id" required="">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <input type="text" class="form-control contact-input" name="phonenumber"placeholder="Phone No" required="">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <input type="text" class="form-control contact-input" name="subject" placeholder="Subject" required="">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <textarea cols="20" rows="10" class="form-control contact-input" name="msg" placeholder="Message" required=""></textarea>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <input type="submit" value="SUBMIT NOW" class=" form-contact-btn">
+                    </div>
+                     
+                   </div>
+                   </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+
+                <h3>  Get in touch</h3>
+               
+                <ul class="contact-detail-ul">
+
+                    <li>
+                        <div>
+                            <a [href]="address.map" target="_blank" class="ti-location-pin"></a>
+                        </div>
+                        <div>
+                            <a href="" target="_top"> 	{{address.address}},
+                                <br>
+                                District:{{address.district}}
+                                <br>{{address.state}}- {{address.pincode}}
+
+     </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <span class="ti-email"></span>
+                        </div>
+                        <div>
+                            <a href="#" target="_top">  			{{address.emailId}}
+
+     </a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <span class="ti-mobile"></span>
+                        </div>
+                        <div>
+                            <a href="#" target="_top"> 			+91 {{address.phone}}
+
+     </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
