@@ -7,6 +7,9 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
                 <div class="contact-border">
                     <h3>  Drop us message for any query</h3>
+                    <div *ngIf="mailSent">
+                        <div class="alert alert-success">{{sentMessage}}</div>
+                    </div>
                     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> 
                  <div class="row">
                   
