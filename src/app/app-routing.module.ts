@@ -10,7 +10,7 @@ const routes: Routes = [
     path:'vision',component:VisionComponent
   }]},
   {path:'contact-us',component:ContactusComponent},
-  {path:'**',component:HomeComponent}
+ // {path:'**',component:HomeComponent}
 ];
 
 @NgModule({
