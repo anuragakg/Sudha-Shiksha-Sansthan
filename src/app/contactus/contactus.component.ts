@@ -29,7 +29,9 @@ export class ContactusComponent implements OnInit {
   formData:any;
   onSubmit() {
     this.formData=this.contactForm.value;
-
+    if (this.contactForm.invalid) {
+      return;
+    }
   }
 
   ngOnInit(): void {}
