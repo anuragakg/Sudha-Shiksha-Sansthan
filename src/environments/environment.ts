@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  App_Name:'Sudha Shiksha Sanstha'
+  App_Name:'Sudha Shiksha Sanstha',
+  apiurl:'http://localhost:3000/'
 };
 
 /*

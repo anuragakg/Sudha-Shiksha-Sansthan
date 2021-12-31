@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl  } from '@angular/forms';
 import { AboutService } from '../_services/about.service';
 import { environment } from 'src/environments/environment';
+import { ContactEmailService } from '../_services/contact-email.service';
 @Component({
   selector: 'app-contactus',
   templateUrl: './contactus.component.html',
@@ -14,7 +15,7 @@ export class ContactusComponent implements OnInit {
   get f() { return this.contactForm.controls; }
   address:any;
   appname:string;
-  constructor(private aboutService:AboutService,private fb:FormBuilder) {
+  constructor(private aboutService:AboutService,private fb:FormBuilder,private contactEmail:ContactEmailService) {
     this.address=this.aboutService.getAddress();
     this.appname=environment.App_Name;
 
@@ -32,6 +33,8 @@ export class ContactusComponent implements OnInit {
     if (this.contactForm.invalid) {
       return;
     }
+    this.contactEmail.sendEmail(this.formData)
+
   }
 
   ngOnInit(): void {}
