@@ -14,6 +14,6 @@ export class ContactEmailService {
   
   sendEmail(data:any){
     const url=`${environment.apiurl}common/send-contact-mail`;
-    return this.http.post<any>(url,JSON.stringify(data));
+    return this.http.post<any>(url,JSON.stringify(data),{headers : {"Content-Type" : "application/json"}});
   }
 }
