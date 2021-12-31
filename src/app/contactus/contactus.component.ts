@@ -28,12 +28,19 @@ export class ContactusComponent implements OnInit {
     });
   }
   formData:any;
+  mailSent=false;
+  sentMessage:string='';
   onSubmit() {
     this.formData=this.contactForm.value;
     if (this.contactForm.invalid) {
       return;
     }
-    this.contactEmail.sendEmail(this.formData)
+    this.contactEmail.sendEmail(this.formData).subscribe((response)=>{
+      if(response.status){
+        this.mailSent=true;
+        this.sentMessage=response.message;
+      }
+    })
 
   }
 
