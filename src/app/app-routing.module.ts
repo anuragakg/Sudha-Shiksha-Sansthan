@@ -12,7 +12,7 @@ import { AdminLayoutComponent } from './_layout/admin-layout/admin-layout.compon
 import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
 
 const routes: Routes = [
-  
+
   {
     path:'',
     component:SiteLayoutComponent,
@@ -23,6 +23,7 @@ const routes: Routes = [
         }]
       },
       {path:'contact-us',component:ContactusComponent}
+      
     ]
   },
   {
