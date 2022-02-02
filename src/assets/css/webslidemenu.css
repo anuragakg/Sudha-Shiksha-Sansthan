@@ -202,16 +202,28 @@ width:100%
 }
 
 .desktoplogo {
-  /*padding: 37px 14px 0px 11px; */
-  /* margin: 0; */
-  /* float: left; */
+  /* padding: 37px 14px 0px 11px; 
+  margin: 0; 
+  
   position: absolute;
-  /* background: #fff; */
+  background: #fff;
   z-index: 999;
   width: 200px;
   height: 200px;
+  border-radius: 50%;*/
+  box-shadow: 0 6px 7px rgb(0 0 0 / 20%);
+  z-index: 999;
+  width: 200px;
+  height: 200px;
+  float: left;
   border-radius: 50%;
-  /* box-shadow: 0 6px 7px rgb(0 0 0 / 20%);*/ 	
+  position: absolute;
+  top: 0;
+  left:10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #f7f3f2;
 }
 
  

@@ -1,0 +1,182 @@
+
+  <!-- /.content-header -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+              <li class="breadcrumb-item active">User Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       [src]="image"
+                       alt="User profile picture">
+                </div>
+
+                <h3 class="profile-username text-center">{{user_profile.name}}</h3>
+
+                <p class="text-muted text-center">Software Engineer</p>
+
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">About Me</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> Education</strong>
+
+                <p class="text-muted" *ngFor="let edu of user_profile.education">
+                  {{edu.title}}
+                </p>
+
+                <hr>
+
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                <p class="text-muted">{{user_profile.address}}</p>
+
+                <hr>
+
+                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                <p class="text-muted">
+                 
+                  {{user_profile.skills}}
+                </p>
+
+                <hr>
+
+               
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link " href="#settings">Edit Profile</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  
+                  <div class="alert alert-success" *ngIf="submitted && !error">
+                    {{message}}
+                  </div>
+
+                  <div class="">
+                    <form class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="name" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" formControlName="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Phone Number</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="phone" class="form-control" id="inputName2" placeholder="Phone Number">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Education</label>
+                        <div class="col-sm-10">
+                            <table class="table table-border" formArrayName="education">
+                                <tr>
+                                    <td>SR.No</td>
+                                    <td>Education</td>
+                                    <td>Certificate</td>
+                                    <td><a href="javascript:void(0)" (click)="addEducation()"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <tr *ngFor="let edu of education().controls;let edu_no=index" [formGroupName]="edu_no">
+                                    <td>{{edu_no+1}}</td>
+                                    <td><input class="form-control" formControlName="title" id="inputExperience{{edu_no+1}}" placeholder="Education {{edu_no+1}}"></td>
+
+                                    <td><input type="file" class="form-control" formControlName="certificate" id="certificate"></td>
+
+                                    <td><a href="javascript:void(0)" (click)="removeEducation(edu_no)"><i class="fa fa-minus" aria-hidden="true"></i></a></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        
+                      </div>
+                      
+                     
+                      
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" formControlName="skills"  id="inputSkills" placeholder="Skills">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Address</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" formControlName="address"  id="inputSkills" placeholder="Address">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" formControlName="acceptTerms"> I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  

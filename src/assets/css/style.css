@@ -798,7 +798,7 @@ figcaption ul li a{color:#333; font-size:20px}
 .panel-title h4{font-weight:500}
 #accordion .panel-title > a{color:#000}
 .border-donate{border:1px solid #ddd; padding:25px;}
-.desktoplogo img{width:182px}
+.desktoplogo img{width:182px;    transform: scale(0.9);}
 .snip1543 img{width:100%}
 
 /*responsive css start*/

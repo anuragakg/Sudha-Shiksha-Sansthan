@@ -18,8 +18,15 @@
         <nav class="wsmenu clearfix">
             <ul class="wsmenu-list">
                 <li><a routerLink=""> Home </a></li>
-               
-                <li><a href="JavaScript:Void(0)">About us  <span class="ti-angle-down"></span></a>
+                <li *ngFor="let category of categories">
+                    <a href="JavaScript:Void(0)">{{category.title}}  <span class="ti-angle-down"></span></a>
+                    <ul class="sub-menu">
+                        <li *ngFor="let page of category.page_ids">
+                            <a routerLink="{{category.alias}}/{{page.alias}}"> {{page.title}}  </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li><a href="JavaScript:Void(0)">About us  <span class="ti-angle-down"></span></a>
                     <ul class="sub-menu">
                         <li><a routerLink="about-us/vision"> Vision  </a></li>
                         <li><a href="javascript:void(0)"> Mission   </a></li>
@@ -32,7 +39,7 @@
                     <ul class="sub-menu">
                         <li><a href="our-programs.php">  Our Programms  </a></li>  
                     </ul>
-                </li>
+                </li> -->
                 <li><a href="JavaScript:Void(0)">Get Involved   <span class="ti-angle-down"></span></a>
                     <ul class="sub-menu">
                         <li><a href="csr.php">CSR </a></li>  

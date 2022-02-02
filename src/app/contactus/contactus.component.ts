@@ -39,6 +39,10 @@ export class ContactusComponent implements OnInit {
       if(response.status){
         this.mailSent=true;
         this.sentMessage=response.message;
+        this.contactForm.reset();
+        setTimeout(() => {
+          this.mailSent=false;
+        }, 4000);
       }
     })
 
